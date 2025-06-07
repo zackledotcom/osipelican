@@ -1,0 +1,20 @@
+/* This is a test CSS file to verify that CSS is properly extracted */
+.test-css-extraction {
+  color: red;
+  background-color: blue;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* Add some more complex CSS to ensure it's properly processed */
+.test-css-extraction:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .test-css-extraction {
+    font-size: 14px;
+  }
+}

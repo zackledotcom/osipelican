@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "biome-write": "npx @biomejs/biome format --write .",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-imports": "tsc --noEmit && eslint . --ext .ts,.tsx,.js,.jsx"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.1",
@@ -23,17 +24,23 @@
     "react-icons": "^5.2.1",
     "recharts": "^2.15.1",
     "sass": "^1.77.6",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@csstools/postcss-global-data": "^2.1.1",
+    "@types/express": "^5.0.2",
     "@types/node": "20.17.23",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
     "postcss-custom-media": "^10.0.7",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "vitest": "^3.2.2",
+    "zod": "^3.25.56"
   },
   "overrides": {
     "@types/react": "19.0.1",

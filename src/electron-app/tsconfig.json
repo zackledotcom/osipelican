@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./electron-app" },
+    { "path": "./renderer" },
+    { "path": "./packages/shared" }
+  ]
+}
