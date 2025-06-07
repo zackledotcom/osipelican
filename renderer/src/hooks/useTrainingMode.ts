@@ -1,5 +1,3 @@
-import { create } from 'zustand';
-
 interface TrainingModeState {
   isEnabled: boolean;
   activeSession: string | null;
