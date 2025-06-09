@@ -1,4 +1,4 @@
-import { initApp } from '@app/main/dist/index.js';
+import { initApp } from '@app/main/dist/index';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 
@@ -25,12 +25,12 @@ if (process.env.NODE_ENV === 'development' || process.env.PLAYWRIGHT_TEST === 't
 console.log('[Electron] Starting entry-point.mjs');
 try {
   const __dirname = dirname(fileURLToPath(import.meta.url));
-  
+
   initApp({
     renderer: (process.env.MODE === 'development') ?
       new URL(process.env.VITE_DEV_SERVER_URL || 'http://localhost:8080')
       : {
-        path: fileURLToPath(import.meta.resolve('@app/renderer/dist/index.html')),
+        path: fileURLToPath(import.meta.resolve('@app/dist/renderer/index.html')),
       },
     preload: {
       path: fileURLToPath(import.meta.resolve('@app/preload/dist/exposed.js')),

@@ -1,0 +1,122 @@
+.animation {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        opacity: 0;
+        border-radius: var(--radius-full);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            120deg,
+            transparent 20%,
+            var(--brand-alpha-medium) 50%,
+            transparent 80%
+        );
+        transform: skewX(-20deg);
+        animation: shineDefault 9s ease-in-out infinite;
+    }
+
+    &:hover {
+        &::before {
+            animation: shineHover 3s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes shineDefault {
+    0% {
+        left: -100%;
+    }
+    1% {
+        left: -100%;
+        opacity: 1;
+    }
+    15% {
+        left: 100%;
+        opacity: 1;
+    }
+    16% {
+        opacity: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes shineHover {
+    0% {
+        left: -100%;
+    }
+    1% {
+        left: -100%;
+        opacity: 1;
+    }
+    45% {
+        left: 100%;
+        opacity: 1;
+    }
+    46% {
+        opacity: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+.badge {
+  transition: all var(--transition-micro-medium);
+}
+
+/* Statuses */
+.default {
+  background: var(--neutral-background-weak);
+  border: 1px solid var(--neutral-border-medium);
+  color: var(--neutral-on-background-strong);
+}
+
+.committed {
+  background: var(--success-background-medium);
+  border: 1px solid var(--success-border-strong);
+  color: var(--success-on-background-strong);
+}
+
+.dirty {
+  background: var(--warning-background-medium);
+  border: 1px solid var(--warning-border-strong);
+  color: var(--warning-on-background-strong);
+}
+
+.learning {
+  background: var(--info-background-medium);
+  border: 1px solid var(--info-border-strong);
+  color: var(--info-on-background-strong);
+  animation: pulse 2s infinite;
+}
+
+.offline {
+  background: var(--neutral-background-strong);
+  border: 1px solid var(--neutral-border-strong);
+  color: var(--neutral-on-background-weak);
+  opacity: 0.7;
+}
+
+.auto {
+  background: var(--brand-background-medium);
+  border: 1px solid var(--brand-border-strong);
+  color: var(--brand-on-background-strong);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--info-solid-strong), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--info-solid-strong), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--info-solid-strong), 0);
+  }
+}

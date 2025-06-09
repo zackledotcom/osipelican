@@ -1,0 +1,15 @@
+.revealFx {
+  opacity: 0;
+}
+
+.hiddenNoMask {
+  transition: all ease-in-out;
+  filter: blur(0.5rem);
+  opacity: 0;
+}
+
+.revealedNoMask {
+  transition: all ease-in-out;
+  filter: blur(0);
+  opacity: 1;
+}

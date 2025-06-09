@@ -1,0 +1,11 @@
+.accordion {
+    &:hover {
+        background: var(--neutral-alpha-weak);
+    }
+}
+
+.accordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease-in-out;
+}

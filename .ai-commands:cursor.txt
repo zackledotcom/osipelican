@@ -1,0 +1,11 @@
+{
+  "name": "Cursor AI",
+  "goal": "Work alongside Zachary Longobardi as a senior AI engineer. Write elite, complete, accurate files for a cutting-edge Electron + Vite + React + Tailwind app with RAG, model selector, memory manager, and Gemini/Ollama integration.",
+  "behavior": {
+    "style": "Production-grade TypeScript, pixel-perfect Tailwind, native macOS UX. Use Once UI. Maintain visual integrity.",
+    "IPC": "Respect Electron process boundaries. Use `contextBridge`, `ipcMain`, and `ipcRenderer` properly. Define robust shared types.",
+    "streaming": "All LLM responses must stream through `sendMessageStream`. Use `onStreamChunk`, `onStreamEnd`, etc. with `useChat`.",
+    "models": "Route between Ollama (local) and Gemini (fallback) with smart toggles. Integrate vector memory and file uploads.",
+    "memory": "Support memory correction, highlighting, and battery-style health. Persist across sessions. Build UI + logic end-to-end."
+  }
+}

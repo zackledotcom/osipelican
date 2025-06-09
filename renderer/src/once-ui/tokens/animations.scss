@@ -1,0 +1,51 @@
+/* Animation System */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px var(--function-success-500);
+  }
+  to {
+    box-shadow: 0 0 20px var(--function-success-500), 0 0 30px var(--function-success-500);
+  }
+}
+
+:root {
+  /* Animation System */
+  --animation-reveal: reveal 300ms ease-out;
+  --animation-pulse: pulse 15s infinite;
+  --animation-learning-pulse: pulse 3s infinite;
+  --animation-shake: shake 500ms ease-in-out;
+  --animation-glow: glow 400ms ease-in-out alternate;
+  --animation-stagger-delay: 150ms;
+} 

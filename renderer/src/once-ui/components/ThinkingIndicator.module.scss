@@ -1,0 +1,51 @@
+.thinkingIndicator {
+  width: 100px;
+  height: 50px;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.node {
+  fill: var(--brand-on-background-weak);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.line {
+  stroke: var(--brand-on-background-weak);
+  stroke-width: 1;
+  stroke-linecap: round;
+  animation: energize 2s infinite ease-in-out;
+}
+
+@for $i from 1 through 8 {
+  .node:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+  .line:nth-child(#{$i + 7}) {
+    animation-delay: #{$i * 0.1 + 0.4}s;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    r: 4;
+    opacity: 0.8;
+  }
+  50% {
+    r: 5;
+    opacity: 1;
+  }
+}
+
+@keyframes energize {
+  0%, 100% {
+    stroke-dasharray: 0, 100;
+  }
+  50% {
+    stroke-dasharray: 50, 50;
+  }
+} 

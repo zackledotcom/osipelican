@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OllamaClient = void 0;
 const events_1 = require("events");
-const logger_1 = require("../../utils/logger");
+const logger_1 = require("@shared/utils/logger");
 const node_fetch_1 = __importDefault(require("node-fetch"));
 const OLLAMA_BASE_URL = 'http://localhost:11434';
 const MAX_RETRIES = 3;
@@ -580,4 +580,3 @@ class OllamaClient extends events_1.EventEmitter {
     }
 }
 exports.OllamaClient = OllamaClient;
-//# sourceMappingURL=OllamaClient.js.map

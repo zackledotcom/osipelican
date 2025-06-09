@@ -1,49 +1,75 @@
 {
   "name": "@once-ui-system/nextjs-starter",
-  "version": "0.7",
+  "version": "0.7.0",
+  "main": "electron/main.js",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "export": "next export",
-    "build": "next build",
-    "start": "next start",
-    "biome-write": "npx @biomejs/biome format --write .",
-    "lint": "next lint",
-    "check-imports": "tsc --noEmit && eslint . --ext .ts,.tsx,.js,.jsx"
+    "dev:renderer": "cd renderer && npm run dev",
+    "build:renderer": "cd renderer && npm run build:no-types",
+    "start": "electron .",
+    "compile": "electron-builder",
+    "dev": "concurrently \"npm run dev:renderer\" \"cross-env NODE_ENV=development electron .\"",
+    "clean": "rimraf dist electron-app/dist renderer/dist"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.1",
+    "better-sqlite3": "^11.10.0",
     "classnames": "^2.5.1",
     "compressorjs": "^1.2.1",
     "date-fns": "^4.1.0",
-    "next": "15.2.3",
-    "postcss": "^8.4.39",
+    "dependencies": "^0.0.1",
+    "electron-is-dev": "^3.0.1",
+    "electron-store": "^10.0.1",
+    "electron-updater": "^6.6.2",
+    "hnswlib-node": "^3.0.0",
     "postcss-preset-env": "^9.5.15",
     "prismjs": "^1.30.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react-hot-toast": "^2.5.2",
     "react-icons": "^5.2.1",
     "recharts": "^2.15.1",
     "sass": "^1.77.6",
     "sharp": "^0.33.4",
+    "to": "^0.2.9",
+    "wait-on": "^8.0.3",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@csstools/postcss-global-data": "^2.1.1",
-    "@types/express": "^5.0.2",
-    "@types/node": "20.17.23",
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12",
+    "esbuild": "^0.25.5",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
+    "postcss": "^8.5.4",
     "postcss-custom-media": "^10.0.7",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "typescript": "5.8.2",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^4.1.8",
     "vitest": "^3.2.2",
     "zod": "^3.25.56"
   },
-  "overrides": {
-    "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.2"
+  "build": {
+    "appId": "com.osiPelican.app",
+    "productName": "OsiPelican",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "renderer/dist/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }

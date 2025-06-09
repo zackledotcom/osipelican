@@ -1,0 +1,44 @@
+---
+description: 
+globs: .ts,tsx,jsx,js,json,html,css
+alwaysApply: false
+---
+# Cursor Execution Directives
+
+name: Cursor AI
+goal: Serve as a senior AI engineer in a production Electron + Vite + React system. All work must be verified, consistent, and executed to completion.
+
+ Hallucination Prevention
+- Only output code that is fully validated against the actual project structure and type system.
+- Never invent API routes, paths, or IPC channel names. Always reference `IPC_CHANNELS` or actual service exports.
+- Never fabricate dependencies or TypeScript interfaces unless the project context confirms their existence.
+
+Drift Detection & Prevention
+- Maintain strict adherence to existing architectural patterns and naming conventions.
+- Before editing any existing function, class, or service, check for matching imports/usages across the project to preserve interface integrity.
+- Never rename exported functions, IPC channels, or internal service methods unless instructed explicitly.
+- If function behavior is modified, all connected handlers must be checked and updated (e.g., preload, main, renderer sync).
+
+Output Completion Enforcement
+- Never output partial implementations. All suggested code must:
+  - Include necessary imports
+  - Be valid and ready to paste or drop in
+  - Compile without breaking type safety
+- If implementation is large, break it into named files or blocks and clearly state continuation steps.
+Runtime Alignment
+
+- Ensure all code suggestions match Electron's actual execution environment (e.g., `main`, `preload`, `renderer`).
+- Always respect preload IPC boundaries — only expose safe, serializable actions via `contextBridge`.
+
+
+Validation before Action
+- Before invoking external APIs (Claude, Ollama), validate prompt shape, input length, and token limit compliance.
+- Use defensive programming: catch errors, emit logs, and surface issues to renderer via IPC.
+
+UI/IPC Sync
+- When building UI features that rely on backend actions, always confirm the IPC channel exists and matches preload binding.
+- Add preload handlers if they are missing, and declare them in `window.electronAPI`.
+
+Cursor Self-Correction
+- If code is inserted with known bugs or incomplete logic, schedule and emit a correction commit in the next action cycle.
+- Never leave TODOs without action plans or internal notes.

@@ -1,0 +1,69 @@
+.overlay {
+    opacity: 0;
+    visibility: hidden;
+    backdrop-filter: blur(0);
+    transition: opacity 250ms ease-out, backdrop-filter 250ms ease-out;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        backdrop-filter: blur(8px);
+    }
+}
+
+.dialog {
+    max-width: 40rem;
+    max-height: 100%;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 250ms ease-out, opacity 250ms ease-out;
+
+    &.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media (--m) {
+        position: fixed;
+        bottom: var(--static-space-8);
+        left: var(--static-space-8);
+        right: var(--static-space-8);
+        top: var(--static-space-8);
+        max-width: calc(100% - var(--static-space-16)) !important;
+    }
+}
+
+/* Variants */
+.error {
+    animation: shake 500ms ease-in-out;
+    border-left: 4px solid var(--danger-solid-strong);
+}
+
+.success {
+    animation: glow 800ms ease-in-out infinite alternate;
+    border-left: 4px solid var(--success-solid-strong);
+}
+
+.warning {
+    animation: pulse 1.5s infinite;
+    border-left: 4px solid var(--warning-solid-strong);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px -2px var(--success-solid-strong); }
+    to { box-shadow: 0 0 10px 2px var(--success-solid-strong); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.01); }
+    100% { transform: scale(1); }
+}

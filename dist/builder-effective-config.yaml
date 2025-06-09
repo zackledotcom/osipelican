@@ -1,0 +1,17 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.osiPelican.app
+productName: OsiPelican
+files:
+  - filter:
+      - electron-app/src/**/*
+      - renderer/dist/**/*
+      - package.json
+mac:
+  category: public.app-category.productivity
+win:
+  target: nsis
+linux:
+  target: AppImage
+electronVersion: 36.4.0
